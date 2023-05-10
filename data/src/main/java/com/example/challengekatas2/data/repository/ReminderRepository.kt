@@ -13,7 +13,6 @@ import javax.inject.Singleton
 class ReminderRepository @Inject constructor(
     private val localDataSource: ReminderLocalDataSource,
     // private val remoteDataSource: ReminderRemoteDataSource,
-    private val mapper: ReminderMapper
 ) {
 
     fun getReminders(): Flow<List<Reminder>> {

@@ -36,14 +36,13 @@ object DataModule {
 
     @Provides
     fun provideReminderRepository(
-        localDataSource: ReminderLocalDataSource,
-        mapper: ReminderMapper
+        localDataSource: ReminderLocalDataSource
     ): ReminderRepository {
-        return ReminderRepository(localDataSource,  mapper)
+        return ReminderRepository(localDataSource)
     }
 
     @Provides
     fun provideReminderMapper(): ReminderMapper {
-        return ReminderMapper()
+        return ReminderMapper
     }
 }
