@@ -12,19 +12,19 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object DataModule {
     @Provides
+    @Singleton
     fun provideReminderDatabase(@ApplicationContext context: Context): AppDatabase {
-        return Room.databaseBuilder(
-            context.applicationContext,
-            AppDatabase::class.java, "reminders.db"
-        ).build()
+        return AppDatabase.getInstance(context.applicationContext)
     }
 
     @Provides
+    @Singleton
     fun provideReminderDao(database: AppDatabase): ReminderDao {
         return database.reminderDao()
     }
