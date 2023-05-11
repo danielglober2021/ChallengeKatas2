@@ -41,6 +41,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation "com.google.dagger:hilt-android:$rootProject.hilt_version"
     implementation project(path: ':domain')
+    implementation project(path: ':data')
     annotationProcessor "com.google.dagger:hilt-android-compiler:$rootProject.hilt_version"
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

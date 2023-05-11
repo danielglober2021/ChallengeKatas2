@@ -1,7 +1,8 @@
 package com.example.challengekatas2.application
 
 import android.app.Application
-import com.example.challengekatas2.domain.repository.ReminderRepository
+import com.example.challengekatas2.data.repository.ReminderRepository as DataReminderRepository
+import com.example.challengekatas2.domain.repository.ReminderRepository as DomainReminderRepository
 import com.example.challengekatas2.domain.usecase.*
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
@@ -12,8 +13,15 @@ class ChallengeKatas2App : Application() {
         super.onCreate()
     }
 
+    // UI
+
+    // Data
     @Inject
-    lateinit var reminderDomainRepository: ReminderRepository
+    lateinit var reminderDataRepository: DataReminderRepository
+
+    // Domain
+    @Inject
+    lateinit var reminderDomainRepository: DomainReminderRepository
 
     @Inject
     lateinit var getAllRemindersUseCase: GetAllRemindersUseCase
