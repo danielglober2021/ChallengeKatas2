@@ -1,11 +1,8 @@
 package com.example.challengekatas2.data.repository
 
 import com.example.challengekatas2.data.local.repository.ReminderLocalDataSource
-import com.example.challengekatas2.data.mapper.ReminderMapper
-import com.example.challengekatas2.domain.Reminder
+import com.example.challengekatas2.data.model.Reminder
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flatMapConcat
-import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -2,7 +2,7 @@ package com.example.challengekatas2.data.local.repository
 
 import com.example.challengekatas2.data.local.dao.ReminderDao
 import com.example.challengekatas2.data.mapper.ReminderMapper
-import com.example.challengekatas2.domain.Reminder
+import com.example.challengekatas2.data.model.Reminder
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow

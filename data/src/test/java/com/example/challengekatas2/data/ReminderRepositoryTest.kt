@@ -3,12 +3,10 @@ package com.example.challengekatas2.data
 import com.example.challengekatas2.data.entity.ReminderEntity
 import com.example.challengekatas2.data.local.dao.ReminderDao
 import com.example.challengekatas2.data.local.repository.ReminderLocalDataSource
-import com.example.challengekatas2.data.mapper.ReminderMapper
 import com.example.challengekatas2.data.repository.ReminderRepository
-import com.example.challengekatas2.domain.Reminder
+import com.example.challengekatas2.domain.model.Reminder
 import io.mockk.every
 import io.mockk.mockk
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
@@ -16,7 +14,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
-import java.time.LocalDateTime
 
 class ReminderRepositoryTest {
 

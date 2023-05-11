@@ -1,20 +1,22 @@
 package com.example.challengekatas2.data.local.db
 
 import android.content.Context
-import androidx.room.DatabaseConfiguration
-import androidx.room.InvalidationTracker
+import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteOpenHelper
+import com.example.challengekatas2.data.entity.ReminderEntity
 import com.example.challengekatas2.data.local.dao.ReminderDao
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
+@Database(entities = [ReminderEntity::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun reminderDao(): ReminderDao
 
     companion object {
+        private const val DB_NAME = "reminder_db"
+
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
@@ -24,7 +26,10 @@ abstract class AppDatabase : RoomDatabase() {
             }
 
         private fun buildDatabase(context: Context) =
-            Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, "reminder.db")
-                .build()
+            Room.databaseBuilder(
+                context.applicationContext,
+                AppDatabase::class.java, DB_NAME
+            ).build()
+
     }
 }

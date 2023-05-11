@@ -1,4 +1,4 @@
-package com.example.challengekatas2.domain
+package com.example.challengekatas2.data.model
 
 data class Reminder(
     val id: Int,

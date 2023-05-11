@@ -7,11 +7,10 @@ import androidx.room.Query
 import com.example.challengekatas2.data.entity.ReminderEntity
 import kotlinx.coroutines.flow.Flow
 
-
 @Dao
 interface ReminderDao {
     @Query("SELECT * FROM reminders")
-    fun getReminders(): Flow<List<ReminderEntity>>
+    suspend fun getReminders(): Flow<List<ReminderEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveReminders(reminders: List<ReminderEntity>)

@@ -1,7 +1,7 @@
 package com.example.challengekatas2.data.mapper
 
 import com.example.challengekatas2.data.entity.ReminderEntity
-import com.example.challengekatas2.domain.Reminder
+import com.example.challengekatas2.data.model.Reminder
 
 object ReminderMapper {
     fun mapToReminderDomain(entity: ReminderEntity): Reminder {
