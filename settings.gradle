@@ -19,7 +19,7 @@ dependencyResolutionManagement {
 rootProject.name = "ChallengeKatas2"
 
 include ':app'
-include ':domain'
 include ':ui'
 include ':utils'
 include ':data'
+include ':domain'
