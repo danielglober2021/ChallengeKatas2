@@ -3,8 +3,8 @@ package com.example.challengekatas2.data
 import com.example.challengekatas2.data.entity.ReminderEntity
 import com.example.challengekatas2.data.local.dao.ReminderDao
 import com.example.challengekatas2.data.local.repository.ReminderLocalDataSource
+import com.example.challengekatas2.data.model.Reminder
 import com.example.challengekatas2.data.repository.ReminderRepository
-import com.example.challengekatas2.domain.model.Reminder
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.firstOrNull
@@ -57,8 +57,8 @@ class ReminderRepositoryTest {
     )
 
     @Before
-    fun setUp(){
-        every { reminderDao.getReminders() } returns flowOf(reminderEntities)
+    fun setUp() = runBlocking {
+        every { reminderDao.getAllReminders() } returns flowOf(reminderEntities)
 
         // every { ReminderMapper.mapToReminderDomainList(reminderEntities) } returns reminders
         // every { ReminderMapper.mapToReminderEntityList(reminders) } returns reminderEntities

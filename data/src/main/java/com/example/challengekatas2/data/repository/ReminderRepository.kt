@@ -12,8 +12,10 @@ class ReminderRepository @Inject constructor(
     // private val remoteDataSource: ReminderRemoteDataSource,
 ) {
 
-    fun getReminders(): Flow<List<Reminder>> {
-        return localDataSource.getReminders()
+    fun getReminders(): Flow<List<Reminder?>> {
+        return localDataSource.getAllReminders()
+
+        // Code to be used with a remote data source
         /*return localDataSource.getReminders().flatMapConcat { reminders ->
             if (reminders.isEmpty()) {
                 fetchRemindersAndSaveLocally()
