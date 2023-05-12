@@ -7,11 +7,13 @@ sealed class Result<out T> {
 
     fun handleResult(
         onSuccess: (T) -> Unit = {},
-        onError: (String?) -> Unit = {}
+        onError: (String?) -> Unit = {},
+        onLoading: () -> Unit = {}
     ) {
         when (this) {
             is Success -> onSuccess(data)
             is Error -> onError(errorMessage)
+            is Loading -> onLoading()
             else -> {
             }
         }
