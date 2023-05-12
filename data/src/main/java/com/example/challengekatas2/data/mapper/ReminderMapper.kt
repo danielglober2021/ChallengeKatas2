@@ -9,6 +9,7 @@ object ReminderMapper {
             id = entity.id,
             title = entity.title,
             description = entity.description,
+            type = entity.type,
             date = entity.date,
             time = entity.time
         )
@@ -19,6 +20,7 @@ object ReminderMapper {
             id = reminder.id,
             title = reminder.title,
             description = reminder.description,
+            type = reminder.type,
             date = reminder.date,
             time = reminder.time
         )
@@ -30,6 +32,7 @@ object ReminderMapper {
                 id = entity.id,
                 title = entity.title,
                 description = entity.description,
+                type = entity.type,
                 date = entity.date,
                 time = entity.time
             )
@@ -42,6 +45,7 @@ object ReminderMapper {
                 id = reminder.id,
                 title = reminder.title,
                 description = reminder.description,
+                type = reminder.type,
                 date = reminder.date,
                 time = reminder.time
             )
