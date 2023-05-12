@@ -11,11 +11,9 @@ import javax.inject.Singleton
 class GetReminderByIdUseCase @Inject constructor(
     private val reminderRepository: ReminderRepository,
     coroutineDispatcher: CoroutineDispatcher
-) : BaseUseCase<String, Flow<Reminder?>>(coroutineDispatcher) {
+) : BaseUseCase<Long, Flow<Reminder?>>(coroutineDispatcher) {
 
-    data class Params(val id: Int)
-
-    override suspend fun execute(idReminder: String): Flow<Reminder?> {
+    override suspend fun execute(idReminder: Long): Flow<Reminder?> {
         return reminderRepository.getReminderById(idReminder)
     }
 }

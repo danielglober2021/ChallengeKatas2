@@ -24,7 +24,7 @@ class ReminderRepository(
         }
     }
 
-    suspend fun deleteReminder(idReminder: String) {
+    suspend fun deleteReminder(idReminder: Int) {
         try {
             reminderLocalDataSource.deleteReminderById(idReminder)
         } catch (e: Exception) {
@@ -41,7 +41,7 @@ class ReminderRepository(
         }
     }
 
-    suspend fun getReminderById(idReminder: String): Flow<Reminder?> {
+    suspend fun getReminderById(idReminder: Long): Flow<Reminder?> {
         return try {
             reminderLocalDataSource.getReminderById(idReminder)
         } catch (e: Exception) {
