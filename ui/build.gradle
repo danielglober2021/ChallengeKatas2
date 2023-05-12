@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -40,8 +41,8 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$rootProject.hilt_version"
     annotationProcessor "com.google.dagger:hilt-android-compiler:$rootProject.hilt_version"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
-    annotationProcessor "androidx.hilt:hilt-compiler:$rootProject.hilt_version"
-    implementation 'androidx.hilt:hilt-navigation-compose:1.1.0-alpha01'
+    annotationProcessor "androidx.hilt:hilt-compiler:$rootProject.hilt_compiler_version"
+    implementation "androidx.hilt:hilt-navigation-compose:$rootProject.hilt_navigation_version"
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
     implementation project(path: ':data')
 
@@ -52,7 +53,7 @@ dependencies {
     implementation "androidx.compose.runtime:runtime-livedata:$rootProject.compose_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$rootProject.compose_version"
     implementation "androidx.activity:activity-compose:$rootProject.activity_compose_version"
-    implementation "androidx.navigation:navigation-compose:2.6.0-beta01"
+    implementation "androidx.navigation:navigation-compose:2.5.3"
 
     // Flow
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutines_version"
@@ -65,3 +66,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
+
+/*apply plugin: 'dagger.hilt.android.plugin'
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}*/
