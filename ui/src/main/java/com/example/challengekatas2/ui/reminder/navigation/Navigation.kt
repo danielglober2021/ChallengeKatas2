@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.challengekatas2.ui.reminder.screens.AddReminderScreen
+import com.example.challengekatas2.ui.reminder.screens.CreateReminderScreen
 import com.example.challengekatas2.ui.reminder.screens.ReminderDetailScreen
 import com.example.challengekatas2.ui.reminder.screens.ReminderListScreen
 import com.example.challengekatas2.ui.theme.ChallengeKatas2Theme
@@ -25,8 +25,8 @@ fun NavigationHost(){
                     val reminderId = reminderIdString.toLong()
                     ReminderDetailScreen(navController = navController, reminderId = reminderId)
                 }
-                composable(route = "add") { backstackEntry ->
-                    AddReminderScreen(navController = navController)
+                composable(route = "create") { backstackEntry ->
+                    CreateReminderScreen(navController = navController)
                 }
             }
         }
