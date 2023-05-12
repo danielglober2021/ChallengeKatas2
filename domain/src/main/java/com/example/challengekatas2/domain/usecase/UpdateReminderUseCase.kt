@@ -10,9 +10,9 @@ import javax.inject.Singleton
 class UpdateReminderUseCase @Inject constructor(
     private val reminderRepository: ReminderRepository,
     coroutineDispatcher: CoroutineDispatcher
-) : BaseUseCase<Reminder, Unit>(coroutineDispatcher) {
+) : BaseUseCase<Reminder, Boolean>(coroutineDispatcher) {
 
-    override suspend fun execute(params: Reminder) {
-        reminderRepository.updateReminder(params)
+    override suspend fun execute(params: Reminder):Boolean {
+        return reminderRepository.updateReminder(params)
     }
 }

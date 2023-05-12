@@ -9,9 +9,9 @@ import javax.inject.Singleton
 class DeleteReminderByIdUseCase @Inject constructor(
     private val reminderRepository: ReminderRepository,
     coroutineDispatcher: CoroutineDispatcher
-) : BaseUseCase<Int, Unit>(coroutineDispatcher) {
+) : BaseUseCase<Int, Boolean>(coroutineDispatcher) {
 
-    override suspend fun execute(idReminder: Int) {
-        reminderRepository.deleteReminder(idReminder)
+    override suspend fun execute(idReminder: Int): Boolean {
+        return reminderRepository.deleteReminder(idReminder)
     }
 }

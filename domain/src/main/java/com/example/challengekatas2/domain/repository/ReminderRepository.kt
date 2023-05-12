@@ -8,27 +8,33 @@ import kotlinx.coroutines.flow.flowOf
 class ReminderRepository(
     private val reminderLocalDataSource: ReminderLocalDataSource
 ) {
-    suspend fun createReminder(reminder: Reminder) {
-        try {
+    suspend fun createReminder(reminder: Reminder): Boolean {
+        return try {
             reminderLocalDataSource.saveSingleReminder(reminder)
+            true
         } catch (e: Exception) {
             e.printStackTrace()
+            false
         }
     }
 
-    suspend fun updateReminder(reminder: Reminder) {
-        try {
+    suspend fun updateReminder(reminder: Reminder): Boolean {
+        return try {
             reminderLocalDataSource.updateReminder(reminder)
+            true
         } catch (e: Exception) {
             e.printStackTrace()
+            false
         }
     }
 
-    suspend fun deleteReminder(idReminder: Int) {
-        try {
+    suspend fun deleteReminder(idReminder: Int): Boolean {
+        return try {
             reminderLocalDataSource.deleteReminderById(idReminder)
+            true
         } catch (e: Exception) {
             e.printStackTrace()
+            false
         }
     }
 
