@@ -10,7 +10,7 @@ interface ReminderDao {
     suspend fun getAllReminders(): Flow<List<ReminderEntity>>
 
     @Query("SELECT * FROM reminders WHERE id=:id LIMIT 1")
-    fun getReminderById(id: String): Flow<ReminderEntity?>
+    fun getReminderById(id: Long): Flow<ReminderEntity?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveReminders(reminders: List<ReminderEntity>)
@@ -25,5 +25,5 @@ interface ReminderDao {
     suspend fun deleteReminder(reminder: ReminderEntity)
 
     @Query("DELETE FROM reminders WHERE id = :idReminder")
-    suspend fun deleteReminderById(idReminder: String)
+    suspend fun deleteReminderById(idReminder: Int)
 }

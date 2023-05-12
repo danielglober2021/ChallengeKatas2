@@ -16,7 +16,7 @@ class ReminderLocalDataSource @Inject constructor(private val reminderDao: Remin
         return flow { ReminderMapper.mapToReminderDomainList(reminderDao.getAllReminders().first()) }
     }
 
-    suspend fun getReminderById(idReminder: String): Flow<Reminder?> {
+    suspend fun getReminderById(idReminder: Long): Flow<Reminder?> {
         return reminderDao.getReminderById(idReminder).first().run {
             when (this@run != null){
                 true -> flow { ReminderMapper.mapToReminderDomain(this@run) }
@@ -40,7 +40,7 @@ class ReminderLocalDataSource @Inject constructor(private val reminderDao: Remin
         reminderDao.updateReminder(entity)
     }
 
-    suspend fun deleteReminderById(idReminder: String) {
+    suspend fun deleteReminderById(idReminder: Int) {
         reminderDao.deleteReminderById(idReminder)
     }
 }
